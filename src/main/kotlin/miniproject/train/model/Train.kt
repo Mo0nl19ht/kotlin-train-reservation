@@ -3,7 +3,7 @@ package miniproject.train.model
 import jakarta.persistence.*
 import miniproject.train.enum.TrainCategory
 import miniproject.train.enum.TrainDirection
-import java.time.LocalDateTime
+import java.time.LocalTime
 
 @Entity
 @Table(name = "train")
@@ -14,7 +14,7 @@ class Train(
     val id: Long? = null,
 
     @Column(nullable = false)
-    var departTime: LocalDateTime,
+    var departTime: LocalTime,
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
