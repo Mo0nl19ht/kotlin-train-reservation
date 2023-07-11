@@ -2,6 +2,7 @@ package miniproject.train.model
 
 import jakarta.persistence.*
 import miniproject.train.enum.TrainCategory
+import miniproject.train.enum.TrainDirection
 import java.time.LocalDateTime
 
 @Entity
@@ -18,6 +19,10 @@ class Train(
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     var trainCategory: TrainCategory,
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    var trainDirection: TrainDirection
 
 //    @Column(nullable = false, unique = true)
 //    @OneToMany(mappedBy = "train", cascade = [CascadeType.ALL])
