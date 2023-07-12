@@ -13,7 +13,10 @@ class User(
     @Column(nullable = false)
     var name: String,
 
-    @Column(nullable = false)
-    var email: String
+    @Column(nullable = false, unique = true)
+    var email: String,
+
+//    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL])
+//    var reservations: MutableList<Reservation> = mutableListOf()
 
     ) : BaseEntity()

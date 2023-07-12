@@ -7,9 +7,11 @@ import miniproject.train.enum.TrainDirection
 import miniproject.train.model.Seat
 import miniproject.train.model.Station
 import miniproject.train.model.Train
+import miniproject.train.model.User
 import miniproject.train.repository.SeatRepository
 import miniproject.train.repository.StationRepository
 import miniproject.train.repository.TrainRepository
+import miniproject.train.repository.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
@@ -29,9 +31,15 @@ class DatabaseInit : CommandLineRunner {
     @Autowired
     lateinit var trainRepository: TrainRepository
 
+    @Autowired
+    lateinit var userRepository: UserRepository
+
     @Throws(Exception::class)
     @Transactional
     override fun run(vararg args: String) {
+        // User DB Init
+        userRepository.save(User(name="예완", email = "mm@kia.com"))
+
         // Station DB Init
         stationRepository.save(Station(
             name = "서울",

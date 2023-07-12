@@ -16,7 +16,7 @@ class Payment(
 
     var totalFee: Int,
 
-    var returnFee: Int?,
+    var returnFee: Int? = null,
 
     @Enumerated(EnumType.STRING)
     var paymentStatus: PaymentStatus = PaymentStatus.WAITING

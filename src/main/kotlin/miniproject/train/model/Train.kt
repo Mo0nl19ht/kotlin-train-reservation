@@ -24,10 +24,8 @@ class Train(
     @Enumerated(EnumType.STRING)
     var trainDirection: TrainDirection
 
-//    @Column(nullable = false, unique = true)
-//    @OneToMany(mappedBy = "train", cascade = [CascadeType.ALL])
 //    //@OrderBy("order asc")
-//    var seats: MutableList<Seat> = ArrayList(),
+
 
 ) : BaseEntity()
 

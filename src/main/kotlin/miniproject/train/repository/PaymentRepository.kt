@@ -1,7 +1,7 @@
 package miniproject.train.repository
 
-import miniproject.train.model.Train
+import miniproject.train.model.Payment
 import org.springframework.data.jpa.repository.JpaRepository
 
-interface TrainRepository : JpaRepository<Train, Long> {
+interface PaymentRepository : JpaRepository<Payment, Long> {
 }
