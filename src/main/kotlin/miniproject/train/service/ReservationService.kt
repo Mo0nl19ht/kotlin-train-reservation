@@ -33,6 +33,7 @@ class ReservationService (
             departureStation = departureStation,
             arrivalStation = arrivalStation,
             train = train,
+            departDate = reservationMakeDTO.departDate
         )
 
         var reservedSeats = mutableListOf<ReservedSeat>()

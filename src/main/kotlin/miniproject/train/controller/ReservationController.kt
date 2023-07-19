@@ -13,9 +13,7 @@ class ReservationController(
     fun createReservation(@RequestBody reservationMakeDTO: ReservationMakeDTO): Long?
         = reservationService.makeReservation(reservationMakeDTO)
 
-
     @PutMapping("/cancel/{reservationId}")
     fun cancelReservation(@PathVariable reservationId: Long): Long? = reservationService.cancelReservation(reservationId)
-
 
 }
