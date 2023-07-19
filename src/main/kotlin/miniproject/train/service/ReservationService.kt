@@ -18,6 +18,7 @@ class ReservationService (
     private val seatRepository: SeatRepository
 
 ){
+    @Transactional
     fun make_reservation(reservationMakeDTO: ReservationMakeDTO) : Long? {
         var user =  userRepository.findById(reservationMakeDTO.userId).get()
         var train = trainRepository.findById(reservationMakeDTO.trainId).get()

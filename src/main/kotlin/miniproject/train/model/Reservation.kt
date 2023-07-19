@@ -30,7 +30,7 @@ class Reservation(
     @OneToMany(mappedBy = "reservation", cascade = [CascadeType.ALL])
     var reservedSeats: MutableList<ReservedSeat> = mutableListOf(),
 
-    @OneToOne(cascade = [CascadeType.ALL])
+    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     var payment: Payment? = null
 
 ) : BaseEntity(){
