@@ -45,15 +45,19 @@ class Reservation(
         this.reservedSeats.addAll(reservedSeats)
     }
 
+    fun addPayment(payment: Payment){
+        this.payment = payment
+    }
+
     fun changeStatus(status: ReservationStatus){
         reservationStatus = status
     }
 
-    fun cancelReservation(){
+    fun cancel(){
         // 예약된 좌석 삭제
         reservedSeats.clear()
         changeStatus(ReservationStatus.CANCEL)
-        payment?.cancelPayment()
+        payment?.cancel()
     }
 
     fun calculateTotalFee() : Int{
@@ -69,7 +73,5 @@ class Reservation(
         }
     }
 
-    fun addPayment(payment: Payment){
-        this.payment = payment
-    }
+
 }

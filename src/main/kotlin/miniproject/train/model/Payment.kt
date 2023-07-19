@@ -26,7 +26,7 @@ class Payment(
     fun changeStatus(status: PaymentStatus){
         paymentStatus = status
     }
-    fun cancelPayment() {
+    fun cancel() {
         changeStatus(PaymentStatus.CANCEL)
     }
 }

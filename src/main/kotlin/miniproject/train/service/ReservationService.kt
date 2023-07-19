@@ -65,7 +65,7 @@ class ReservationService (
     @Transactional
     fun cancelReservation(reservationId: Long): Long? {
         var reservation  = reservationRepository.findById(reservationId).get()
-        reservation.cancelReservation()
+        reservation.cancel()
 
         return reservationRepository.save(reservation).id
     }
