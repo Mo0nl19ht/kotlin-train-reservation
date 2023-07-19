@@ -21,4 +21,12 @@ class Payment(
     @Enumerated(EnumType.STRING)
     var paymentStatus: PaymentStatus = PaymentStatus.WAITING
 
-) : BaseEntity()
+) : BaseEntity() {
+
+    fun changeStatus(status: PaymentStatus){
+        paymentStatus = status
+    }
+    fun cancelPayment() {
+        changeStatus(PaymentStatus.CANCEL)
+    }
+}

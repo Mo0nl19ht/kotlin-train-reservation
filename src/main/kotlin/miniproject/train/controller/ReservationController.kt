@@ -10,10 +10,12 @@ class ReservationController(
     private val reservationService: ReservationService
 ) {
     @PostMapping("")
-    fun createReservation(
-        @RequestBody
-        reservationMakeDTO: ReservationMakeDTO,
-    ): Long? {
-        return reservationService.make_reservation(reservationMakeDTO)
-    }
+    fun createReservation(@RequestBody reservationMakeDTO: ReservationMakeDTO): Long?
+        = reservationService.makeReservation(reservationMakeDTO)
+
+
+    @PutMapping("/cancel/{reservationId}")
+    fun cancelReservation(@PathVariable reservationId: Long): Long? = reservationService.cancelReservation(reservationId)
+
+
 }

@@ -19,7 +19,7 @@ class ReservationService (
 
 ){
     @Transactional
-    fun make_reservation(reservationMakeDTO: ReservationMakeDTO) : Long? {
+    fun makeReservation(reservationMakeDTO: ReservationMakeDTO) : Long? {
         var user =  userRepository.findById(reservationMakeDTO.userId).get()
         var train = trainRepository.findById(reservationMakeDTO.trainId).get()
         var departureStation = stationRepository.findByNameAndTrainCategory(reservationMakeDTO.departureStation, train.trainCategory)
@@ -61,4 +61,13 @@ class ReservationService (
 
         return reservationRepository.save(reservation).id
     }
+
+    @Transactional
+    fun cancelReservation(reservationId: Long): Long? {
+        var reservation  = reservationRepository.findById(reservationId).get()
+        reservation.cancelReservation()
+
+        return reservationRepository.save(reservation).id
+    }
+
 }
